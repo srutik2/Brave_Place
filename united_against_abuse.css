@@ -38,6 +38,7 @@ body {
     transition: .5s;
 }
 .navbar.black {
+    z-index: 2;
     background: rgb(0, 51, 103);
     height: 80px;
     opacity: 100%;
@@ -63,19 +64,31 @@ body {
 }
 
 .navbar-links ul {
-    padding: 0;
+    padding: 1rem 0rem;
     display: flex;
     
 }
 
+.navbar-links {
+    margin-top: 0px;
+    margin-bottom: 8px;
+}
+
 .navbar-links li {
-    float: right;
-    margin-right: 8px;
-    margin-top: 8px;
     list-style: none;
 }
 
+.navbar-links img{
+    float: right;
+    margin-top: -8px;
+    margin-bottom: 8px;
+    margin-left: 15px;
+    width: 29px;
+    height: 100%;
+}
+
 .navbar-links ul li a {
+    margin-top: -12px;
     display: block;
     font-weight: bold;
     letter-spacing: 1px;
@@ -89,6 +102,7 @@ body {
 }
 
 .navbar.black ul li a { 
+    margin-top: -16px;
     color: #fff;
     
 }
@@ -98,60 +112,36 @@ body {
     background: teal;
 }
 
+.navbar-links ul li a.active {
+    background-color: beige;
+    position: absolute;
+    width: 150px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
 .toggle-button {
     position: absolute;
-    top: .75rem;
-    right: 1rem;
+    top: 28px;
+    right: 16px;
     display: none;
     flex-direction: column;
     justify-content: space-between;
-    width: 30px;
-    height: 21px;
+    width: 32px;
+    height: 24px;
     float: right;
 
 }
 
 .toggle-button .hamburger_bars{
-    height: 3px;
+    height: 4px;
     width: 100%;
     background-color: white;
-    border-radius: 30px;
+    border-radius: 8px;
 }
 
-@media (max-width: 1000px) {
-    .toggle-button {
-        display: flex;
-    }
-
-    .navbar-links {
-        width: 100%;
-       display: none; 
-    }
-
-    .navbar {
-        flex-direction: column;
-      
-    }
-
-    .navbar-links ul {
-        background-color: black;
-        width: 100%;
-        flex-direction: column;
-    }
-
-    .navbar-links li {
-        text-align: center;
-    }
-
-    .navbar-links li a {
-        padding: 1.5rem 1rem;
-    }
-
-    .navbar-links.active {
-        display: flex;
-    }
-
-}
 /*
 .burger {
     display: none;
@@ -177,8 +167,9 @@ body {
 }
 
 .navigation{
+    z-index: 0;
+    margin-top: -30px;
     position: absolute;
-    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -243,62 +234,50 @@ input[name="r"] {
 
 
 /*===media queries===*/
-/*====================*//*
-@media screen and (max-width: 1030px){
-    nav {
-        overflow-x: hidden;
+/*====================*/
+
+@media (max-width: 400px) {
+    .navbar .logo img {
+        height: 32px;
     }
-    nav ul li{
-        padding-left: 16px;
-        position: relative;
+}
+
+/* Media query for hamburger nav bar*/ 
+
+
+@media (max-width: 1000px) {
+    .toggle-button {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-bottom: 10px;
-        opacity: 0;
     }
-         
-    nav ul {
-        margin-top: -8px;
-        margin-right: 16px;
+
+    .navbar-links {
+        width: 100%;
+       display: none; 
+    }
+
+    .navbar {
+        flex-direction: column;
+      
+    }
+
+    .navbar-links ul {
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-bottom: 200px;
+        background-color: rgb(0, 51, 103);
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .navbar-links li {
+        text-align: center;
+    }
+
+    .navbar-links li a {
+        padding: 1.5rem 1rem;
+    }
+
+    .navbar-links.active {
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        background: rgb(0, 51, 103);
-        opacity: 0;
-        transform: translateX(110%);
-        transition: transform 0.5s ease-in;
-    }
-
-    .burger {
-        display: block;
-        cursor: pointer;
-    }
-
-}
-
-.nav-active {
-    transform: translate(0%);
-}
-/*
-@media screen and (max-width: 586px){
-    /*
-    nav a {
-        margin-top: 0px;
-        margin-bottom: 0px;
-        padding: 5px;
-    }
-
-    .logo {
-        margin-right: 20px;
-        width: 80px;
-        height: auto;
-    }
-
-
-    .middle {
-        top: 50%;
-        left: 50%;
     }
 }
-

@@ -1,0 +1,19 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+@media (max-width: 411px) {
+    .whole {
+        display: none;
+    }
+    .part {
+        display: flex;
+    }
+}
+
+@media (min-width: 412px)  {
+    .part {
+        display: none;
+    }
+}
